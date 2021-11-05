@@ -9,7 +9,7 @@ public class SoundManager : MonoBehaviour
     public AudioSource PlayerJump;
     public AudioSource PlayerLand;
     public AudioSource PlayerWhip;
-    public AudioSource CatGrab;
+    public List<AudioSource> CatGrabs;
     public AudioSource PlayerStep;
     public AudioSource Trampoline;
     private static SoundManager _instance;
@@ -54,7 +54,8 @@ public class SoundManager : MonoBehaviour
     }
     public void PlayCatGrab()
     {
-        CatGrab.Play();
+        int num = Random.Range(0, CatGrabs.Count);
+        CatGrabs[num].Play();
     }
 
 }
