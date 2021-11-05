@@ -22,7 +22,7 @@ public class trampoline : MonoBehaviour
         if (collision.collider.CompareTag("dog"))
         {
 
-            print("Trampoline");
+            SoundManager.Instance.PlayTrampolineSound();
             collision.collider.GetComponent<Rigidbody2D>().AddForce(Vector3.up * launchForce);
         }
 

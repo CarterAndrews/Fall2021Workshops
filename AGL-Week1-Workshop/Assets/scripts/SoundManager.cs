@@ -11,6 +11,7 @@ public class SoundManager : MonoBehaviour
     public AudioSource PlayerWhip;
     public AudioSource CatGrab;
     public AudioSource PlayerStep;
+    public AudioSource Trampoline;
     private static SoundManager _instance;
 
     public static SoundManager Instance { get { return _instance; } }
@@ -31,6 +32,11 @@ public class SoundManager : MonoBehaviour
     {
         if (!PlayerJump.isPlaying)
             PlayerJump.Play();
+    }
+    public void PlayTrampolineSound()
+    {
+        if (!Trampoline.isPlaying)
+            Trampoline.Play();
     }
     public void PlayPlayerLandSound()
     {
