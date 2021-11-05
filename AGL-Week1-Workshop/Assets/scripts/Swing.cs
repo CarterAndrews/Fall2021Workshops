@@ -16,6 +16,11 @@ public class Swing : MonoBehaviour
     public float swingSpeed;
     public bool swingingRight;
     public Transform indicator;
+    public float endPointSpeed;
+    public float endPointPos;
+    public float groundedSwingForce;
+    public float maxRange;
+    public DogMovement movement;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,21 +38,34 @@ public class Swing : MonoBehaviour
         if (swinging)
         {
             lr.SetPosition(0, throwerRb.position);
-            lr.SetPosition(1, swingCenter);
-            
+
+            //lr.SetPosition(1, throwerRb.position+ Mathf.Clamp01(endPointPos+endPointSpeed*Time.deltaTime)*(throwerRb.position-swingCenter));
+            lr.SetPosition(1, throwerRb.position + -0.5f * (throwerRb.position - swingCenter));
             return;
         }        
         Vector3 mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition - new Vector3(0, 0, 10));
         Vector2 forceDir = (Vector2)mousePos;
-        RaycastHit2D hit=Physics2D.Raycast(throwerRb.position, forceDir - throwerRb.position,1000,swingable);
-        
-        if (hit == null)
+        RaycastHit2D hit=Physics2D.Raycast(throwerRb.position, forceDir - throwerRb.position,maxRange,swingable);
+
+        if (hit.point == Vector2.zero)
+        {
+            indicator.gameObject.SetActive(false);
             return;
+        }
+        indicator.gameObject.SetActive(true);
         indicator.position = new Vector3(hit.point.x, hit.point.y, indicator.position.z);
         if (Input.GetButtonDown("Fire1"))
         {
-            swingCenter = hit.point;
-            StartSwing();
+            if (movement.getGrounded())
+            {
+                throwerRb.velocity = Vector3.zero;
+                throwerRb.AddForce((hit.point - throwerRb.position).normalized * groundedSwingForce, ForceMode2D.Impulse);
+            }
+            else
+            {
+                swingCenter = hit.point;
+                StartSwing();
+            }
         }
 
     }
@@ -65,9 +83,11 @@ public class Swing : MonoBehaviour
     public void StartSwing()
     {
         lr.SetPosition(0, throwerRb.position);
+        
         lr.SetPosition(1, swingCenter);
         lr.enabled = true;
         swinging = true;
+        //endPointPos = 0;
         //swingSpeed = throwerRb.velocity.magnitude;
         throwerRb.gravityScale = 0;
         swingingRight = swingCenter.x > transform.position.x;

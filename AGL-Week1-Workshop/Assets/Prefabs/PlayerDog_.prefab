@@ -352,6 +352,11 @@ MonoBehaviour:
     m_Bits: 119
   swingSpeed: 0
   swingingRight: 0
+  indicator: {fileID: 0}
+  endPointSpeed: 0.01
+  groundedSwingForce: 10
+  maxRange: 12
+  movement: {fileID: 8563633910395909260}
 --- !u!120 &8892296743628574170
 LineRenderer:
   m_ObjectHideFlags: 0

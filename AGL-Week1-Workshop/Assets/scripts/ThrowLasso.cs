@@ -9,6 +9,7 @@ public class ThrowLasso : MonoBehaviour
     public Rigidbody2D throwerRb;
     public float throwForce;
     Camera mainCam;
+    
     // Start is called before the first frame update
     void Start()
     {
