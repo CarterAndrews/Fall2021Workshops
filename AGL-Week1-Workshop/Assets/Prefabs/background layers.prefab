@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e9e32b7281e96947899f72129830dbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceScaler: -1
+  distanceScaler: -0.95
   actualSpeed: 0
   PontoDeDestino: -4.94
   PontoDeDestinoLeft: 0
@@ -445,7 +445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e9e32b7281e96947899f72129830dbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceScaler: -2
+  distanceScaler: -1
   actualSpeed: 0
   PontoDeDestino: -4.94
   PontoDeDestinoLeft: 0
@@ -736,6 +736,8 @@ MonoBehaviour:
   camera: {fileID: 0}
   backgroundPieces: []
   speed: -1
+  trackedObject: {fileID: 0}
+  offset: 0
 --- !u!1 &3114828902521494069
 GameObject:
   m_ObjectHideFlags: 0
@@ -1268,7 +1270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e9e32b7281e96947899f72129830dbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceScaler: -2
+  distanceScaler: -1
   actualSpeed: 0
   PontoDeDestino: -4.94
   PontoDeDestinoLeft: 0
@@ -1571,7 +1573,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e9e32b7281e96947899f72129830dbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceScaler: -1
+  distanceScaler: -0.95
   actualSpeed: 0
   PontoDeDestino: -4.94
   PontoDeDestinoLeft: 0
