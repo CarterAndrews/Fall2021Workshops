@@ -28573,10 +28573,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 200727967, guid: f88678372c73ab04786133feeb25978c, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: cfb52ead9c96c5844b05e1913d8f93c5, type: 2}
     - target: {fileID: 1896875430548256576, guid: f88678372c73ab04786133feeb25978c, type: 3}
       propertyPath: m_Name
       value: PlayerDog?
@@ -28629,46 +28625,6 @@ PrefabInstance:
       propertyPath: indicator
       value: 
       objectReference: {fileID: 593240053}
-    - target: {fileID: 6166210176298842621, guid: f88678372c73ab04786133feeb25978c, type: 3}
-      propertyPath: swingSpeed
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 6166210176298842621, guid: f88678372c73ab04786133feeb25978c, type: 3}
-      propertyPath: endPointPos
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6166210176298842621, guid: f88678372c73ab04786133feeb25978c, type: 3}
-      propertyPath: endPointSpeed
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8892296743628574170, guid: f88678372c73ab04786133feeb25978c, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-    - target: {fileID: 8892296743628574170, guid: f88678372c73ab04786133feeb25978c, type: 3}
-      propertyPath: m_Parameters.colorGradient.key0.b
-      value: 0.007843138
-      objectReference: {fileID: 0}
-    - target: {fileID: 8892296743628574170, guid: f88678372c73ab04786133feeb25978c, type: 3}
-      propertyPath: m_Parameters.colorGradient.key0.g
-      value: 0.3019608
-      objectReference: {fileID: 0}
-    - target: {fileID: 8892296743628574170, guid: f88678372c73ab04786133feeb25978c, type: 3}
-      propertyPath: m_Parameters.colorGradient.key0.r
-      value: 0.5411765
-      objectReference: {fileID: 0}
-    - target: {fileID: 8892296743628574170, guid: f88678372c73ab04786133feeb25978c, type: 3}
-      propertyPath: m_Parameters.colorGradient.key1.b
-      value: 0.019607844
-      objectReference: {fileID: 0}
-    - target: {fileID: 8892296743628574170, guid: f88678372c73ab04786133feeb25978c, type: 3}
-      propertyPath: m_Parameters.colorGradient.key1.g
-      value: 0.30980393
-      objectReference: {fileID: 0}
-    - target: {fileID: 8892296743628574170, guid: f88678372c73ab04786133feeb25978c, type: 3}
-      propertyPath: m_Parameters.colorGradient.key1.r
-      value: 0.54509807
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f88678372c73ab04786133feeb25978c, type: 3}
 --- !u!1001 &2711543608392931033
