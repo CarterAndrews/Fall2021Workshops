@@ -40,9 +40,9 @@ public class Swing : MonoBehaviour
             lr.SetPosition(0, throwerRb.position);
 
             //lr.SetPosition(1, throwerRb.position+ Mathf.Clamp01(endPointPos+endPointSpeed*Time.deltaTime)*(throwerRb.position-swingCenter));
-            lr.SetPosition(1, throwerRb.position + -0.5f * (throwerRb.position - swingCenter));
-            return;
-        }        
+            endPointPos = Mathf.Clamp01(endPointPos + endPointSpeed * Time.deltaTime);
+            lr.SetPosition(1, throwerRb.position + -endPointPos * (throwerRb.position - swingCenter));
+        }
         Vector3 mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition - new Vector3(0, 0, 10));
         Vector2 forceDir = (Vector2)mousePos;
         RaycastHit2D hit=Physics2D.Raycast(throwerRb.position, forceDir - throwerRb.position,maxRange,swingable);
@@ -78,13 +78,19 @@ public class Swing : MonoBehaviour
                 throwerRb.velocity = transform.right*swingSpeed;
             else
                 throwerRb.velocity = -transform.right * swingSpeed;
+        
+            
         }
+    }
+    private void LateUpdate()
+    {
+        
     }
     public void StartSwing()
     {
         lr.SetPosition(0, throwerRb.position);
-        
-        lr.SetPosition(1, swingCenter);
+        endPointPos = 0;
+        lr.SetPosition(1, throwerRb.position);
         lr.enabled = true;
         swinging = true;
         //endPointPos = 0;
