@@ -74,7 +74,11 @@ public class Swing : MonoBehaviour
         if (swinging)
         {
             transform.up = (swingCenter - (Vector2)transform.position).normalized;
-            if(swingingRight)
+            if (Input.GetAxis("Horizontal") > 0)
+                swingingRight = true;
+            if (Input.GetAxis("Horizontal") < 0)
+                swingingRight = false;
+            if (swingingRight)
                 throwerRb.velocity = transform.right*swingSpeed;
             else
                 throwerRb.velocity = -transform.right * swingSpeed;
