@@ -22,6 +22,7 @@ public class DogMovement : MonoBehaviour
 	public float airControlCap;
 	public float walkingLag;
 	public Animator walking;
+	bool isJumping = false;
 	[Header("Events")]
 	[Space]
 
@@ -61,6 +62,7 @@ public class DogMovement : MonoBehaviour
 				if (!wasGrounded)
 				{
 					OnLandEvent.Invoke();
+					if(!isJumping)
 					SoundManager.Instance.PlayPlayerLandSound();
 					//print("land");
 				}
@@ -118,9 +120,15 @@ public class DogMovement : MonoBehaviour
 			m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
 			print("jump");
 			SoundManager.Instance.PlayPlayerJumpSound();
+			StartCoroutine(jumping());
 		}
 	}
-
+	IEnumerator jumping()
+    {
+		isJumping = true;
+		yield return new WaitForSeconds(0.2f);
+		isJumping = false;
+    }
 
 	private void Flip()
 	{

@@ -12,6 +12,7 @@ public class SoundManager : MonoBehaviour
     public List<AudioSource> CatGrabs;
     public AudioSource PlayerStep;
     public AudioSource Trampoline;
+    public AudioSource wind;
     private static SoundManager _instance;
 
     public static SoundManager Instance { get { return _instance; } }
@@ -57,5 +58,12 @@ public class SoundManager : MonoBehaviour
         int num = Random.Range(0, CatGrabs.Count);
         CatGrabs[num].Play();
     }
-
+    public void PlayWind()
+    {
+        wind.Play();
+    }
+    public void StopWind()
+    {
+        wind.Stop();
+    }
 }

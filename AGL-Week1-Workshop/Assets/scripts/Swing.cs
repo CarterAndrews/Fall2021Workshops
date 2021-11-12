@@ -102,6 +102,7 @@ public class Swing : MonoBehaviour
         throwerRb.gravityScale = 0;
         swingingRight = swingCenter.x > transform.position.x;
         SoundManager.Instance.PlayPlayerWhip();
+        SoundManager.Instance.PlayWind();
     }
     public void StopSwing()
     {
@@ -109,6 +110,7 @@ public class Swing : MonoBehaviour
         lr.enabled = false;
         transform.up = Vector3.up;
         throwerRb.gravityScale = 1;
+        SoundManager.Instance.StopWind();
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
