@@ -10,11 +10,12 @@ public class SoundManager : MonoBehaviour
     public AudioSource PlayerLand;
     public AudioSource PlayerWhip;
     public List<AudioSource> CatGrabs;
-    public AudioSource PlayerStep;
+    public List<AudioSource> PlayerSteps;
     public AudioSource Trampoline;
     public AudioSource wind;
     private static SoundManager _instance;
-
+    bool stepping = false;
+    public float stepTime;
     public static SoundManager Instance { get { return _instance; } }
 
 
@@ -31,7 +32,7 @@ public class SoundManager : MonoBehaviour
     }
     public void PlayPlayerJumpSound()
     {
-        if (!PlayerJump.isPlaying)
+        if (!PlayerJump.isPlaying) 
             PlayerJump.Play();
     }
     public void PlayTrampolineSound()
@@ -46,8 +47,18 @@ public class SoundManager : MonoBehaviour
     }
     public void PlayPlayerStep()
     {
-        if (!PlayerStep.isPlaying)
-            PlayerStep.Play();
+        if (!stepping)
+        {
+            int num = Random.Range(0, PlayerSteps.Count);
+            PlayerSteps[num].Play();
+            StartCoroutine(stepCooldown());
+        }
+    }
+    private IEnumerator stepCooldown()
+    {
+        stepping = true;
+        yield return new WaitForSeconds(stepTime);
+        stepping = false;
     }
     public void PlayPlayerWhip()
     {
